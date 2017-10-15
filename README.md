@@ -10,6 +10,25 @@ A cell phone can detect all kinds of things like this. Tiny RFduino attached to 
 receive data from phone/laptop, and represent visually (etc). Could also alert user to RF
 signals/wifi, bluetooth/NFC beacons, any imaginable data from geo APIs, etc.
 
+
+Current Functionality
+=====================
+This proof-of-concept uses an Android phone to detect ultrasound
+that might indicate a tracking beacon. It sends BLE signals to 
+a "wearable" device with two indicator lights. One of the lights
+indicates that there is generally a high amount of ultrasound.
+A second light indicates that a specific signal was recieved on
+two specific preprogrammed frequencies.
+
+More / Future Ideas
+===================
+
+More analysis of real tracking protocols like Lisnr, Chirp,io etc.
+would provide the ability to more accurately identify real beacons
+or even analyze their content.
+
+Add support for BLE, NFC beacons.
+
 @merlin suggested that API on crime data could alert you via wearable if you're entering an area
 with higher crime.
 
