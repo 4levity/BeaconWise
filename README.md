@@ -29,10 +29,10 @@ or even analyze their content.
 
 Add support for BLE, NFC beacons.
 
-@merlin suggested that API on crime data could alert you via wearable if you're entering an area
+Alex Glo suggested that API on crime data could alert you via wearable if you're entering for example an area
 with higher crime.
 
-@mattbellis pointed out that if we wanted to, we could detect ultrasound signals using simple
+Matt Bellis pointed out that if we wanted to, we could detect ultrasound signals using simple
 analog circuits which would be much smaller and use a lot less power than doing fast Fourier
 transforms on digital data - so that ultrasound beacon detectors could be made very small and low
 power - built into the wearable instead of connected to another device over Bluetooth Low Energy.
