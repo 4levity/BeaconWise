@@ -1,4 +1,5 @@
-== BeaconWise
+BeaconWise
+==========
 
 Wearable technology can make invisible things visible. If someone is trying to use ultrasound
 beacons to track people where you are, you could be alerted via wearables (lights, sounds,
@@ -18,7 +19,11 @@ transforms on digital data - so that ultrasound beacon detectors could be made v
 power - built into the wearable instead of connected to another device over Bluetooth Low Energy.
 But now I don't really know how to do that except in theory, so I'm using software!
 
-=== Inspiration
+Inspiration and Credits
+=======================
 
 Using Ultrasonic Beacons to Track Users
 https://www.schneier.com/blog/archives/2017/05/using_ultrasoni.html
+
+Sample Android App for RFduino (used some code Copyright 2013 Lann under MIT license)
+https://github.com/lann/RFDuinoTest
