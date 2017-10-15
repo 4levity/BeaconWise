@@ -83,7 +83,7 @@ public class MainActivity extends AbstractRfduinoActivity implements Runnable {
 
     private void update() {
         StringBuilder frequenciesBuilder = new StringBuilder("frequencies: ");
-        int anyUltrasound = 0;
+        int ultrasound = 0;
         int beaconFrequenciesDetected = 0;
         for (int band = 0; band < NUM_BANDS; band++) {
             StringBuilder activity = new StringBuilder(
@@ -93,9 +93,9 @@ public class MainActivity extends AbstractRfduinoActivity implements Runnable {
                 signal = signals.get(ix);
                 if (signal[band]) {
                     activity.append("*");
-                    if (ix > signals.count() / 2) {
-                        // only look at last half of buffer
-                        anyUltrasound++;
+                    if (ix > signals.count() / 4) {
+                        // only look at last 25% of buffer
+                        ultrasound++;
                     }
                     int freq = ultrasoundDetector.frequency(band);
                     if (freq == 18500 || freq == 21000) {
@@ -112,8 +112,9 @@ public class MainActivity extends AbstractRfduinoActivity implements Runnable {
             this.bandActivity.set(band, activity.toString());
         }
         boolean beaconDetected = beaconFrequenciesDetected > (LAST_SIGNALS_BUFFER_SIZE);
-        boolean ultrasound = anyUltrasound > (LAST_SIGNALS_BUFFER_SIZE / 8);
-        setLedState(ultrasound, beaconDetected);
+        boolean otherUltrasound = !beaconDetected 
+                && (ultrasound > (LAST_SIGNALS_BUFFER_SIZE / NUM_BANDS));
+        setLedState(otherUltrasound, beaconDetected);
         String frequencies = frequenciesBuilder.toString();
         bandActivity.set(ROW_FREQUENCIES, frequencies);
         //Log.i(TAG, frequencies);
